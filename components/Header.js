@@ -62,7 +62,7 @@ const Header = () => {
           <Link href="/Blog" className={`hover:text-[#FF2020] duration-500 ${isActive('/Blog')}`}>Blog</Link>
           <Link href="/Contact" className={`hover:text-[#FF2020] duration-500 ${isActive('/Contact')}`}>Contact</Link>
         </div>
-        <div className='flex items-center text-[#292621] text-[28px] gap-4 md:gap-4'>
+        <div className='flex items-center text-[#292621] text-[28px] gap-2 md:gap-4'>
           <Link href="/" className='hover:text-[#FF2020] duration-500'><IoSearchOutline /></Link>
           {user ? <Link href="/Account" className={`hover:text-[#FF2020] duration-500 ${isActive('/Account')}`}><VscAccount /></Link> : <Link href="/Login" className={`flex items-center text-[20px] hover:text-[#FF2020] duration-500 ${isActive('/Login')}`}><h1>Login</h1><CiLogin /></Link>}
           <Link href="/AddToCart" className={`hover:text-[#FF2020] duration-500 ${isActive('/AddToCart')}`}><CartIcon /></Link>

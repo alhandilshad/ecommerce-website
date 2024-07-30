@@ -36,7 +36,7 @@ const page = () => {
       <Header />
       <Discount />
       <PageTitle title="Men Category" />
-      <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28">
+      <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28 mx-3 md:mx-0">
           {mendata.map((item) => {
             return (
               <div

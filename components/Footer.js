@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col lg:flex-row justify-center items-center gap-1 pt-6'>
+        <div className='flex flex-col lg:flex-row md:pb-0 justify-center items-center gap-1 pt-6 pb-6'>
           <h1 className='text-center text-[#BBB9B5] font-jost'>Copyright ©2024 All rights reserved | This template is made with</h1>
           <FaHeart className='text-[#FF2020]' />
           <h1 className='text-center text-[#BBB9B5] font-jost'>by <span className='text-[#FF2020]'>ALHAN</span></h1>

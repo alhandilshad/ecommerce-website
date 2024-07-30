@@ -37,7 +37,7 @@ const page = () => {
       <Header />
       <Discount />
       <PageTitle title="Electronics Category" />
-      <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28">
+      <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28 mx-3 md:mx-0">
         {electronicsdata &&
           electronicsdata.map((item) => {
             return (

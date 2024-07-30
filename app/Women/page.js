@@ -39,7 +39,7 @@ const WomenPage = () => {
       <Header />
       <Discount />
       <PageTitle title="Women Category" />
-      <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28">
+      <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28 mx-3 md:mx-0">
         {womendata &&
           womendata.map((item) => (
             <div

@@ -57,7 +57,7 @@ const App = () => {
 
     return (
         <>
-            <div className='mt-20 mb-32'>
+            <div className='mt-20 mb-32 mx-3 md:mx-0'>
                 <h1 className='text-center text-[#292621] text-[24px] md:text-[34px] font-[500] pb-6'>Trending This Week</h1>
                 <Tabs defaultActiveKey="1" size='large' centered>
                     <Tabs.TabPane tab="Men's" key="1">
