@@ -169,11 +169,7 @@ const CartPage = () => {
               <div className="flex items-center gap-4">
                 <h1 className="text-md md:text-xl">Sub total:</h1>
                 <h1 className="text-md md:text-xl">
-                  $
-                  {cartItems.reduce(
-                    (acc, item) => acc + (item.quantity || 1) * item.price,
-                    0
-                  )}
+                  ${cartItems.reduce((acc, curr) => acc + (curr.total || (curr.price * (curr.quantity || 1))), 0)}
                 </h1>
               </div>
               <button

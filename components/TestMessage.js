@@ -6,7 +6,9 @@ const TestMessage = () => {
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('user'));
-    messageApi.info(`Welcome: ${userData.user}`);
+    if(userData){
+      messageApi.info(`Welcome: ${userData.user}`);
+    }
   }, [messageApi]);
 
   return <>{contextHolder}</>;

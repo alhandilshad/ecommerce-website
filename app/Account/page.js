@@ -9,6 +9,8 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("personalInfo");
   const [orderList, setorderList] = useState([]);
+  const now = new Date();
+  const time = now.toLocaleString();
 
   const router = useRouter();
 
@@ -28,6 +30,8 @@ const Home = () => {
 
     return () => clearTimeout(timer);
   }, [router]);
+
+  console.log(orderList);
 
   if (loading) {
     return <Loader />;
@@ -120,6 +124,9 @@ const Home = () => {
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Total
                     </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -137,6 +144,9 @@ const Home = () => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           ${order.totalAmount}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {order.deliveryTime === time ? <p className="text-red-600 font-semibold">Delivered</p> : <div className="flex items-center"><p className="text-green-600 font-semibold">In Progress</p><img className="w-[70px]" src="/e0341dab7619da163adf938cf2d162c9 (1).gif"></img></div>}
                         </td>
                       </tr>
                     ))

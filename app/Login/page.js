@@ -1,4 +1,5 @@
 "use client";
+import Header from '@/components/Header';
 import Loader from '@/components/Loader';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -53,6 +54,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <Header />
     <div className='flex flex-col justify-center items-center min-h-screen w-full gap-5 px-4 md:px-0'>
       <h1 className='text-center text-black font-semibold text-3xl md:text-4xl'>Login</h1>
       <h1 className='text-center text-black pb-6 md:pb-10'>Enter Login details to get access</h1>
@@ -90,6 +93,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

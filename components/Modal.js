@@ -1,8 +1,18 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSmileWink } from "react-icons/fa";
 
 const Modal = ({ show, onClose, orderDetails }) => {
+
+  const [user, setuser] = useState();
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (userData) {
+      setuser(userData);
+    }
+  }, []);
+
   if (!show) {
     return null;
   }
@@ -14,6 +24,7 @@ const Modal = ({ show, onClose, orderDetails }) => {
         <p>Order Time: {orderDetails.orderTime}</p>
         <p>Estimated Delivery Time: {orderDetails.deliveryTime}</p>
         <p>Total Amount: ${orderDetails.totalAmount.toFixed(2)}</p>
+        <p className='font-semibold text-[18px] pt-4'>Thank You {user && user.user} !</p>
         <div className='flex items-center gap-2 pt-4'>
         <p className='text-red-600 font-jost font-semibold text-[18px]'>Happy Shopping</p>
         <FaSmileWink className='text-orange-400 text-2xl' />

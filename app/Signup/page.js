@@ -1,4 +1,5 @@
 "use client";
+import Header from '@/components/Header';
 import Loader from '@/components/Loader';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
@@ -78,6 +79,8 @@ const Page = () => {
   };
 
   return (
+    <>
+    <Header />
     <div className='flex flex-col justify-center items-center min-h-screen w-full gap-5 px-4 md:px-0'>
       <div>
         <h1 className='text-center text-black font-semibold text-3xl md:text-4xl pb-4'>Sign Up</h1>
@@ -126,6 +129,7 @@ const Page = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

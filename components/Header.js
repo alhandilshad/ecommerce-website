@@ -1,7 +1,8 @@
 "use client"
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { CiLogin } from "react-icons/ci";
 import { IoSearchOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -12,8 +13,16 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [user, setuser] = useState();
 
   const isActive = (path) => pathname === path ? 'text-[#FF2020]' : '';
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (userData) {
+      setuser(userData);
+    }
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -53,9 +62,9 @@ const Header = () => {
           <Link href="/Blog" className={`hover:text-[#FF2020] duration-500 ${isActive('/Blog')}`}>Blog</Link>
           <Link href="/Contact" className={`hover:text-[#FF2020] duration-500 ${isActive('/Contact')}`}>Contact</Link>
         </div>
-        <div className='flex items-center text-[#292621] text-[28px] gap-4 md:gap-6'>
+        <div className='flex items-center text-[#292621] text-[28px] gap-4 md:gap-4'>
           <Link href="/" className='hover:text-[#FF2020] duration-500'><IoSearchOutline /></Link>
-          <Link href="/Account" className={`hover:text-[#FF2020] duration-500 ${isActive('/Account')}`}><VscAccount /></Link>
+          {user ? <Link href="/Account" className={`hover:text-[#FF2020] duration-500 ${isActive('/Account')}`}><VscAccount /></Link> : <Link href="/Login" className={`flex items-center text-[20px] hover:text-[#FF2020] duration-500 ${isActive('/Login')}`}><h1>Login</h1><CiLogin /></Link>}
           <Link href="/AddToCart" className={`hover:text-[#FF2020] duration-500 ${isActive('/AddToCart')}`}><CartIcon /></Link>
           <button onClick={toggleMenu} className='block md:hidden text-[#292621]'>
             {menuOpen ? <IoClose /> : <GiHamburgerMenu />}

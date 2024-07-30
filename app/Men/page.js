@@ -5,19 +5,18 @@ import Header from "@/components/Header";
 import Loader from "@/components/Loader";
 import PageTitle from "@/components/PageTitle";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 
 const page = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [mendata, setmendata] = useState([]);
     useEffect(() => {
-      // Set a timer to simulate loading time
       const timer = setTimeout(() => {
         fetchMenProducts();
-      }, 1000); // 3 seconds delay for the loader
+      }, 1000);
   
-      return () => clearTimeout(timer); // Cleanup timer on component unmount
+      return () => clearTimeout(timer);
     }, []);
     const fetchMenProducts = () => {
         fetch("https://fakestoreapi.com/products/category/men's%20clothing")
@@ -31,14 +30,14 @@ const page = () => {
     if (loading) {
       return <Loader />;
     }
+    
   return (
     <>
       <Header />
       <Discount />
       <PageTitle title="Men Category" />
       <div className="flex flex-wrap justify-center items-center gap-7 mt-28 mb-28">
-        {mendata &&
-          mendata.map((item) => {
+          {mendata.map((item) => {
             return (
               <div
                 key={item.id}
